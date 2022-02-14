@@ -1,4 +1,4 @@
-# import_export
+# Django Import and Export
 A Django project incorporating PDF export with other formats delivered by django-import-export package.
 
 As the name suggests, this project covers a basic import and export in Django using the django-import-export package.
