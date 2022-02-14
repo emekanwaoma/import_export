@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+
+{% block title %} Book List {% endblock %}
+
+{% block body_block %}
+    <div class='container'>
+        <div class='col-12'>
+            <h1 style="background-color: aquamarine; text-align: center;">Book List</h1>
+        </div>
+
+        <div class="jumbotron">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Date Created</th>
+                    </tr>               
+                </thead>
+                <tbody>
+                    {% for book in obj %}
+                        <tr>   
+                            <td>{{book.id}}</td> 
+                            <td>{{book.title}}</td> 
+                            <td>{{book.author}}</td> 
+                            <td>{{book.publish_status}}</td> 
+                            <td>{{book.created|date:"M. d, Y"}}</td> 
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+{% endblock %}

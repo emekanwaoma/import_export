@@ -1,0 +1,62 @@
+{% extends "core/base.html" %}
+
+{% block title %} Book List {% endblock %}
+
+{% block body_block %}
+    <div class='container'>
+        <div class='col-12'>
+            <h1 style="background-color: aquamarine; text-align: center;">Book List</h1>
+        </div>
+
+        <div class="jumbotron">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th style="text-align: center;" colspan="2">Author</th>
+                        <th>Status</th>
+                        <th>Date Created</th>
+                    </tr>    
+                    <tr>
+                        <th></th>
+                        <th><em class="text-muted">Name</em></th>
+                        <th><em class="text-muted">Gender</em></th>
+                        <th></th>
+                        <th></th>
+                    </tr>            
+                </thead>
+                <tbody>
+                    {% for book in obj %}
+                        <tr>   
+                            <td>{{book.title}}</td> 
+                            <td>{{book.author}}</td> 
+                            <td>{{book.author.gender}}</td> 
+                            <td>{{book.publish_status}}</td> 
+                            <td>{{book.created|date:"M. d, Y"}}</td> 
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+            <br>
+
+            <div style="display: flex; height: 40px;">
+                <form method="post" style="margin-top: 1px; margin-right: 10px; font-size: medium;">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="submit" style="height: 33px;" class='btn btn-primary' value="Go">
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+{% endblock %}
